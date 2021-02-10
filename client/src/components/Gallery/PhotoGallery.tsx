@@ -3,9 +3,7 @@ import useClientHelper from '../../utils/hooks/ClientHelper';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 const truncate = (input: string, length: number = 100) => input.length > length ? `${input.substring(0, length)}...` : input;
-const getInfo = (id : string) => {
-	return `https://www.flickr.com/services/rest/?method=flickr.photos.getInfo&format=json&nojsoncallback=1&api_key=9ac3e9d0e1fcf4c50a0b44b67f46742f&photo_id=${id}`;
-}
+
 
 const PhotoGallery =  ( {photo} : {photo: any}) => {
 	const {
@@ -16,7 +14,7 @@ const PhotoGallery =  ( {photo} : {photo: any}) => {
 		title,
 	} = photo;
 	const [imageLoading, setImageLoading] = useState(false);
-	const { response, isLoading }: { response: any, isLoading: boolean} = useClientHelper(getInfo(id));
+	const { response, isLoading }: { response: any, isLoading: boolean} = useClientHelper(id);
 	const src = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}.jpg`;
 
 	useEffect(() => {

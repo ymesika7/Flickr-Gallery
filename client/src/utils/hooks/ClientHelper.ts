@@ -7,14 +7,17 @@ const useClientHelper = (endpoint: any) => {
   const [response, setResponse] = useState(null);
   const [isLoading, setLoading] = useState(false);
   // const { addError } = useAPIError();
-
-
+  
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
+
       try {
         // const response = await endpoint;
-        const response = await axios(endpoint);
+        const response = await axios.get(`/api/gallery/info/${endpoint}`)
+        .then(response => {
+            return(response); 
+          });
         setResponse(response.data);
         setLoading(false);
         return response

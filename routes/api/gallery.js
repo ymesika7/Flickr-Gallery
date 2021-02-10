@@ -29,12 +29,20 @@ router.get("/:text/:per_page/:page", ({ params: { text, per_page, page } }, res)
   });
 });
 
-// @route    GET api/gallery/:photo_name
+// @route    GET api/gallery/info/:id
 // @desc     Get all photos by name
 // @access   Public
 router.get("/info/:id", ({ params: { id } }, res) => {
-    const url = `https://www.flickr.com/services/rest/?method=flickr.photos.getInfo&format=json&nojsoncallback=1&api_key=9ac3e9d0e1fcf4c50a0b44b67f46742f&photo_id=${id}`;
-    res.send(url);
+    flickr.photos.getInfo({
+        format: 'json',
+        nojsoncallback: 1,
+        photo_id: id
+    }).then(function (url_res) {
+        res.send(url_res.body);
+    }).catch(function (err) {
+        console.error(err.message);
+        res.status(500).send("Server Error");
+    });
 });
 module.exports = router;
 
