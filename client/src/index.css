@@ -1,0 +1,200 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.fade-in {
+  animation: fadeIn ease 1s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.photo {
+  animation: fadeIn ease 1s;
+}
+
+/* Theme */
+.bg-dark {
+  background-color: #343a40;
+  color: #fff;
+}
+
+.btn.btn-primary {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  outline: none;
+  transition: all 0.2s ease-in;
+  background-color: #21707c;
+  color: #f4f4f4;
+}
+.btn.btn-primary:hover {
+  background: #3eafc0;
+}
+.form input[type='text'],
+.form select,
+.form textarea {
+  width: 60%;
+  padding: 0.2rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+}
+.form input[type='submit'] {
+  font: inherit;
+}
+
+ul {
+  list-style: none;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.7rem 2rem;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+  border-bottom: solid 1px #21707c;
+  opacity: 0.9;
+}
+.navbar ul {
+  display: center;
+}
+
+/* Lightbox */
+#lightbox {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /*optional bg color*/
+  background-color: rgba(175, 171, 179, 0.52);
+  /*the following isn't necessary but will help center everything once we add buttons*/
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#lightbox-img {
+  background-color: rgba(250, 246, 250, 0.9);
+  margin: auto;
+  border: 1px solid #1e1f1e;
+}
+
+button {
+  color: white;
+  border: 2px solid #5f5f66;
+  background-color: #a2a2aa;
+  font-size: 1.5rem;
+}
+
+/* Gallery */
+.gallery-container {
+  height: 100%;
+  position: relative;
+  padding-bottom: 60px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery__item {
+  width: calc(25% - 20px);
+  margin: 0 10px;
+  min-height: 300px;
+  border: 1px solid lightgray;
+  padding: 10px;
+  margin-bottom: 20px;
+  word-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gallery-container .loading-spinner {
+  position: absolute;
+  bottom: 0;
+}
+
+@media only screen and (max-width: 720px) {
+  .gallery__item {
+    width: calc(50% - 20px);
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .gallery__item {
+    width: 100%;
+  }
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  width: 100%;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  margin: 4px;
+  border: 4px solid #000;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #000 transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
