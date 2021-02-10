@@ -12,6 +12,7 @@
   "author": "Yonatan Mesika",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.21.1",
     "express": "^4.17.1",
     "flickr-sdk": "^3.10.0"
   },
